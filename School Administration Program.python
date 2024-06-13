@@ -1,0 +1,23 @@
+students = []
+
+while True:
+  name = input("Enter student's name (or type 'done' to finish): ")
+  if name.lower() == 'done':
+    break
+  roll_number = input("Enter student's roll number: ")
+  marks = input("Enter student's marks: ")
+
+  student_info = {
+    'name': name,
+    'roll_number': roll_number,
+    'marks': marks
+  }
+  students.append(student_info)
+
+filename = input("Enter the filename to save student information: ")
+
+with open(filename, 'w') as file:
+  for student in students:
+    file.write(f"Name: {student['name']}, Roll Number: {student['roll_number']}, Marks: {student['marks']}\n")
+
+print("Student information saved successfully.")
